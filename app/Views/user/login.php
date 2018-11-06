@@ -1,6 +1,6 @@
 <div>
-
-    <h1>Sign In</h1>
+    
+    <h1 class="text-center">Sign In</h1>
 
     <form>
         <div class="form-group"> 
@@ -13,6 +13,6 @@
             <input type="password" name="password" class="form-control">
         </div>
 
-        <button type="submit" class="btn btn-danger">Submite</button> 
+        <button type="submit" class="btn btn-danger col-12 mb-4">Submite</button> 
     </form>
 </div>
