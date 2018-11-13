@@ -2,11 +2,15 @@
 namespace Core;
 
 Class View {
-    public function render($view) {
+
+    protected $contents = "";
+
+    public function render($view, $title) {
         $pageView = $this->get_view($view);
         $layouts = $this->get_view("layouts.main");
-        $page = str_replace("@content",$pageView, $layouts);
-        return $page;
+        $this->contents = str_replace("@content",$pageView, $layouts);
+        $this->contents = str_replace("@title", $title, $this->contents);
+        return $this;
     }
 
     public function render_partial() {
@@ -21,5 +25,9 @@ Class View {
             return ob_get_clean();
         }
         return null;
+    }
+
+    public function __toString() {
+        return $this->contents;
     }
 }

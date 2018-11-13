@@ -12,7 +12,11 @@ Class Router {
         $controllersName = !empty($parts[0]) ? ucfirst($parts[0]) : "Home";
         $controllerClassName = "\\app\\Controllers\\{$controllersName}Controller";
         $object = new $controllerClassName();
-        $action = count($parts) > 1 ? $parts[1] : "index";
-        return $object->$action();
+        $action = count($parts) > 1 ? kebabToCamel($parts[1]) : "index";
+        $result = $object->$action();
+        if(is_a($result, "Core\\View")) {
+            echo $result;
+        }
+        exit;
     }
 }

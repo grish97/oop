@@ -28,12 +28,22 @@ function get_router() {
     return Core\Router::getInstance();
 }
 
-function view($view) {
+function view($view, string $title = "") {
     $v = new Core\View();
-    return $v->render($view);
+    return $v->render($view, $title);
 }
 
 function view_partial($view) {
     $v = new Core\View();
     return $v->render_partial($view);
+}
+
+function kebabToCamel($string) {
+    $parts = explode("-", $string);
+    foreach ($parts as $key => $part) {
+        if($key !== 0) {
+            $parts[$key] = ucfirst($part);
+        }
+        return implode("", $parts);
+    }
 }
