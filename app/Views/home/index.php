@@ -1,3 +1,1 @@
-<?php
-
-echo "<h1>Welcome Home Page!</h1>";
+<h1>Welcome to our Site</h1>

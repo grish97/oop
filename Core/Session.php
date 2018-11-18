@@ -4,12 +4,11 @@ namespace Core;
 
  Class Session {
     public function __construct() {
-        session_start();
+        // session_start();
         $_SESSION["previous_url"] = isset($_SESSION["current_url"]) ? $_SESSION["current_url"] : null;
         if(!preg_match("/\.(css|js|img|fonts|ico|map)$/", $_SERVER["REQUEST_URI"])){
             $_SESSION["current_url"] = $_SERVER["REQUEST_URI"];
         }
-        var_dump($_SESSION);exit;
     }
 
     public static function set($key, $value) {
